@@ -48,7 +48,22 @@
                 android:backgroundTint="@color/black"
                 android:drawableEnd="@drawable/ic_baseline_keyboard_double_arrow_down_24"
                 android:fontFamily="@font/sulphur_point"
-                android:text="View Details"
+                android:text="View More"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnExpansionReverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtAppTitle"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/black"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_double_arrow_up_24"
+                android:fontFamily="@font/sulphur_point"
+                android:text="View Less"
+                android:visibility="gone"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -61,7 +76,7 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/sulphur_point"
-                android:text="Get application"
+                android:text="@string/get_application"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -80,7 +95,7 @@
         android:layout_marginRight="10dp"
         android:backgroundTint="#3C3F3E"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/materialCardView"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView">
 
@@ -88,7 +103,8 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
             <TextView
@@ -96,6 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
+                android:layout_margin="2dp"
                 android:fontFamily="sans-serif"
                 android:textSize="15sp" />
 
@@ -105,6 +122,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif"
+                android:layout_margin="2dp"
                 android:textSize="15sp" />
 
             <TextView
@@ -119,6 +137,7 @@
                 android:id="@+id/txtComplexity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="2dp"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif"
                 android:textSize="15sp" />
@@ -127,6 +146,7 @@
                 android:id="@+id/txtTechnologiesUsed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="2dp"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif"
                 android:textSize="15sp" />

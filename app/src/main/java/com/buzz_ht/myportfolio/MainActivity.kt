@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -14,6 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.buzz_ht.myportfolio.Adapters.AppListRecyclerViewAdapter
 import com.buzz_ht.myportfolio.Models.CustomClass
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.InstallStatus
+import com.google.android.play.core.install.model.UpdateAvailability
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,71 +27,94 @@ class MainActivity : AppCompatActivity() {
     lateinit var appListRecyclerview: RecyclerView
     val appPackageName = "com.buzz_ht.bigbmi"
     private var listOfApps = arrayListOf<CustomClass>()
+    private val MY_REQUEST_CODE = 99
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         drawBehindStatusBar()
         hideActionBar()
+
+        // checkInAppUpdate()
         setContentView(R.layout.activity_main)
 
         btnBMICalculator = findViewById(R.id.btnBMICalculator)
         appListRecyclerview = findViewById(R.id.appListRecyclerview)
 
-        btnBMICalculator.setOnClickListener {
-
-//            val launchIntent = packageManager.getLaunchIntentForPackage("com.google.android.youtube")
-            val launchIntent = packageManager.getLaunchIntentForPackage(appPackageName)
-
-            if (launchIntent != null) {
-                startActivity(launchIntent)
-            } else {
-                try {
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=$appPackageName")
-                        )
-                    )
-                } catch (anfe: ActivityNotFoundException) {
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")
-                        )
-                    )
-                }
-            }
-        }
-
 
         listOfApps.add(
             CustomClass(
                 "BMI Calculator",
-                "Firebase Authentication",
                 "MVC",
                 "NA",
+                "Firebase Authentication",
                 "Calculate your accurate BMI",
-                "1/10"
+                "1/10",
+                getString(R.string.bmi_calculator_playstore)
             )
         )
         listOfApps.add(
             CustomClass(
                 "PMDB",
-                "Third Party Apis, Retrofit",
                 "MVC",
                 "NA",
-                "Find your favourite movies and shwos",
-                "1.5/10"
+                "Third Party Apis, Retrofit",
+                "Find your favourite movies and shows",
+                "1.5/10",
+                getString(R.string.pmdb_playstore)
             )
         )
 
-        val adapter = AppListRecyclerViewAdapter(listOfApps)
+        val adapter = AppListRecyclerViewAdapter(this, listOfApps)
         appListRecyclerview.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         appListRecyclerview.adapter = adapter
 
     }
+
+    private fun checkInAppUpdate() {
+        val appUpdateManager = AppUpdateManagerFactory.create(this)
+
+        // Returns an intent object that you use to check for an update.
+        val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+
+        // Checks that the platform will allow the specified type of update.
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                // This example applies an immediate update. To apply a flexible update
+                // instead, pass in AppUpdateType.FLEXIBLE
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
+            ) {
+
+                appUpdateManager.startUpdateFlowForResult(
+                    // Pass the intent that is returned by 'getAppUpdateInfo()'.
+                    appUpdateInfo,
+                    // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
+                    AppUpdateType.FLEXIBLE,
+                    // The current activity making the update request.
+                    this,
+                    // Include a request code to later monitor this update request.
+                    MY_REQUEST_CODE
+                )
+            }
+        }
+    }
+
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == MY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                val listener = { state ->
+                    if (state.installStatus() == InstallStatus.DOWNLOADED) {
+                        // After the update is downloaded, show a notification
+                        // and request user confirmation to restart the app.
+                        popupSnackbarForCompleteUpdate()
+                    }
+
+                }
+            }
+        }
+    }*/
 
     private fun drawBehindStatusBar() {
         window.decorView.systemUiVisibility = (

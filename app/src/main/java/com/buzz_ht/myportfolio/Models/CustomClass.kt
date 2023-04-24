@@ -7,7 +7,8 @@ data class CustomClass(
     val githubLink: String,
     val technologiesUsed: String,
     val useCase: String,
-    val complexity: String
+    val complexity: String,
+    val packageName: String
 
 )
 
