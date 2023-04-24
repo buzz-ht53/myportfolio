@@ -66,7 +66,8 @@ class MainActivity : AppCompatActivity() {
                 "Firebase Authentication",
                 "MVC",
                 "NA",
-                "Calculate your accurate BMI"
+                "Calculate your accurate BMI",
+                "1/10"
             )
         )
         listOfApps.add(
@@ -75,7 +76,8 @@ class MainActivity : AppCompatActivity() {
                 "Third Party Apis, Retrofit",
                 "MVC",
                 "NA",
-                "Find your favourite movies and shwos"
+                "Find your favourite movies and shwos",
+                "1.5/10"
             )
         )
 

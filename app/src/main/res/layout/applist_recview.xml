@@ -9,17 +9,19 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="10dp"
         android:backgroundTint="@color/black"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/txtAppTitle"
@@ -29,8 +31,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/autour_one"
-                android:text="App Name"
                 android:gravity="center"
+                android:text="App Name"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,13 +56,13 @@
                 android:id="@+id/btnGetApp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txtAppTitle"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black"
-                android:text="Get application"
                 android:fontFamily="@font/sulphur_point"
+                android:text="Get application"
                 android:textAllCaps="false"
-                android:layout_below="@+id/txtAppTitle"
                 android:textColor="@color/white" />
 
 
@@ -68,6 +70,70 @@
 
 
     </com.google.android.material.card.MaterialCardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/expansionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#3C3F3E"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txtAppArchitecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtGithubLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtAppUseCase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtComplexity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtTechnologiesUsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
