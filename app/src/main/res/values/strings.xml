@@ -3,6 +3,7 @@
     <string name="get_application"><u>Get application</u></string>
     <string name="bmi_calculator_playstore">com.buzz_ht.bigbmi</string>
     <string name="pmdb_playstore">com.buzz_ht.moviedatabase</string>
+    <string name="quiz_playstore">com.buzz_ht.quiz</string>
 
 
 </resources>

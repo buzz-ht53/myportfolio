@@ -65,6 +65,18 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        listOfApps.add(
+            CustomClass(
+                "Quiz",
+                "MVC",
+                "NA",
+                "Shared pref, Recyclerview",
+                "Quiz away",
+                "2.5/10",
+                getString(R.string.quiz_playstore)
+            )
+        )
+
         val adapter = AppListRecyclerViewAdapter(this, listOfApps)
         appListRecyclerview.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
