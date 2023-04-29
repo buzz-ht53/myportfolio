@@ -2,7 +2,7 @@ package com.buzz_ht.myportfolio.Models
 
 data class CustomClass(
     val appName: String,
-
+    val langUsed: String,
     val architecture: String,
     val githubLink: String,
     val technologiesUsed: String,

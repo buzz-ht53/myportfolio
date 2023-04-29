@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         listOfApps.add(
             CustomClass(
                 "BMI Calculator",
+                "Java",
                 "MVC",
                 "NA",
                 "Firebase Authentication",
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         listOfApps.add(
             CustomClass(
                 "PMDB",
+                "Kotlin",
                 "MVC",
                 "NA",
                 "Third Party Apis, Retrofit",
@@ -68,12 +70,28 @@ class MainActivity : AppCompatActivity() {
         listOfApps.add(
             CustomClass(
                 "Quiz",
+                "Kotlin",
                 "MVC",
                 "NA",
                 "Shared pref, Recyclerview",
                 "Quiz away",
                 "2.5/10",
                 getString(R.string.quiz_playstore)
+            )
+
+
+        )
+
+        listOfApps.add(
+            CustomClass(
+                "Ecommerce",
+                "Java",
+                "MVC",
+                "NA",
+                "Shared pref, Recyclerview, Bottom Navigation view, Menu",
+                "Sample E-commerce application",
+                "4/10",
+                getString(R.string.ecommerce_playstore)
             )
         )
 

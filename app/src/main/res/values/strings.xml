@@ -4,6 +4,7 @@
     <string name="bmi_calculator_playstore">com.buzz_ht.bigbmi</string>
     <string name="pmdb_playstore">com.buzz_ht.moviedatabase</string>
     <string name="quiz_playstore">com.buzz_ht.quiz</string>
+    <string name="ecommerce_playstore">com.buzz_ht.ecommerce</string>
 
 
 </resources>
