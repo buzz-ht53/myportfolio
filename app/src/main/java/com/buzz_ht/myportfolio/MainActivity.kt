@@ -1,24 +1,21 @@
 package com.buzz_ht.myportfolio
 
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.buzz_ht.myportfolio.Adapters.AppListRecyclerViewAdapter
+import com.buzz_ht.myportfolio.Fragments.FragmentMyWork
 import com.buzz_ht.myportfolio.Models.CustomClass
+import com.google.android.material.tabs.TabLayout
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
-import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
+import javax.xml.datatype.DatatypeFactory.newInstance
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     val appPackageName = "com.buzz_ht.bigbmi"
     private var listOfApps = arrayListOf<CustomClass>()
     private val MY_REQUEST_CODE = 99
+    private lateinit var tabLayout: TabLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,13 +33,72 @@ class MainActivity : AppCompatActivity() {
         drawBehindStatusBar()
         hideActionBar()
 
-        // checkInAppUpdate()
         setContentView(R.layout.activity_main)
 
         btnBMICalculator = findViewById(R.id.btnBMICalculator)
         appListRecyclerview = findViewById(R.id.appListRecyclerview)
+        tabLayout = findViewById(R.id.tabLayout)
+
+        addListItems()
+        setUpAdapter()
+        setUpTabLayout()
+        // setUpFragment()
+
+    }
+
+    private fun setUpFragment() {
+        supportFragmentManager
+            // 3
+            .beginTransaction()
+            // 4
+            .add(R.id.mainFragment, FragmentMyWork())
+            // 5
+            .commit()
+    }
+
+    private fun setUpTabLayout() {
+        tabLayout.addTab(tabLayout.newTab().setText("Home"))
+        tabLayout.addTab(tabLayout.newTab().setText("My Work"))
+        tabLayout.addTab(tabLayout.newTab().setText("About Me"))
 
 
+        //TabLayout Selected Listener
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+                when (tab?.id) {
+
+                    1 -> {
+                        setUpFragment()
+                    }
+
+
+                }
+
+                Toast.makeText(this@MainActivity, tab?.position.toString(), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity, "Hello0000", Toast.LENGTH_SHORT).show()
+
+            }
+
+        })
+    }
+
+    private fun setUpAdapter() {
+        val adapter = AppListRecyclerViewAdapter(this, listOfApps)
+        appListRecyclerview.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        appListRecyclerview.adapter = adapter
+    }
+
+    private fun addListItems() {
         listOfApps.add(
             CustomClass(
                 "BMI Calculator",
@@ -94,12 +151,6 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.ecommerce_playstore)
             )
         )
-
-        val adapter = AppListRecyclerViewAdapter(this, listOfApps)
-        appListRecyclerview.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        appListRecyclerview.adapter = adapter
-
     }
 
     private fun checkInAppUpdate() {

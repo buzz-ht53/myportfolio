@@ -39,6 +39,7 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
         var txtComplexity: TextView = view.findViewById(R.id.txtComplexity)
         var txtTechnologiesUsed: TextView = view.findViewById(R.id.txtTechnologiesUsed)
         var txtAppArchitecture: TextView = view.findViewById(R.id.txtAppArchitecture)
+        var txtAppLanguage: TextView = view.findViewById(R.id.txtAppLanguage)
         var btnExpansion: Button = view.findViewById(R.id.btnExpansion)
         var btnExpansionReverse: Button = view.findViewById(R.id.btnExpansionReverse)
         var btnGetApp: Button = view.findViewById(R.id.btnGetApp)
@@ -88,6 +89,12 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
                 holder.expansionLayout.visibility = View.VISIBLE
                 holder.btnExpansionReverse.visibility = View.VISIBLE
                 holder.btnExpansion.visibility = View.GONE
+
+
+                if (listOfItems[position].appLanguage != "") {
+                    holder.txtAppLanguage.text =
+                        "Language: " + listOfItems[position].appLanguage
+                }
 
                 if (listOfItems[position].architecture != "") {
                     holder.txtAppArchitecture.text =
