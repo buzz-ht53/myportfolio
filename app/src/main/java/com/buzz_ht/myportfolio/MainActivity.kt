@@ -6,16 +6,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.buzz_ht.myportfolio.Adapters.AppListRecyclerViewAdapter
+import com.buzz_ht.myportfolio.Fragments.FragmentAbout
+import com.buzz_ht.myportfolio.Fragments.FragmentHome
 import com.buzz_ht.myportfolio.Fragments.FragmentMyWork
 import com.buzz_ht.myportfolio.Models.CustomClass
 import com.google.android.material.tabs.TabLayout
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
-import javax.xml.datatype.DatatypeFactory.newInstance
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,16 +44,16 @@ class MainActivity : AppCompatActivity() {
         addListItems()
         setUpAdapter()
         setUpTabLayout()
-        // setUpFragment()
+        setUpFragment(FragmentHome())
 
     }
 
-    private fun setUpFragment() {
+    private fun setUpFragment(fragment: Fragment) {
         supportFragmentManager
             // 3
             .beginTransaction()
             // 4
-            .add(R.id.mainFragment, FragmentMyWork())
+            .replace(R.id.mainFragment, fragment)
             // 5
             .commit()
     }
@@ -66,10 +68,16 @@ class MainActivity : AppCompatActivity() {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
 
-                when (tab?.id) {
+                when (tab?.position) {
 
+                    0 -> {
+                        setUpFragment(FragmentHome())
+                    }
                     1 -> {
-                        setUpFragment()
+                        setUpFragment(FragmentMyWork())
+                    }
+                    2 -> {
+                        setUpFragment(FragmentAbout())
                     }
 
 
