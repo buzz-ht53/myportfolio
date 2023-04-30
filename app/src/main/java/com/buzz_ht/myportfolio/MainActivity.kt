@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
 
-        getWindow().setStatusBarColor(Color.BLACK);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
     }
 
