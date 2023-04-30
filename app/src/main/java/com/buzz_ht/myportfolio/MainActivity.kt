@@ -23,9 +23,7 @@ import com.google.android.play.core.install.model.UpdateAvailability
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnBMICalculator: Button
-    lateinit var appListRecyclerview: RecyclerView
     val appPackageName = "com.buzz_ht.bigbmi"
-    private var listOfApps = arrayListOf<CustomClass>()
     private val MY_REQUEST_CODE = 99
     private lateinit var tabLayout: TabLayout
 
@@ -38,11 +36,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnBMICalculator = findViewById(R.id.btnBMICalculator)
-        appListRecyclerview = findViewById(R.id.appListRecyclerview)
         tabLayout = findViewById(R.id.tabLayout)
 
-        addListItems()
-        setUpAdapter()
         setUpTabLayout()
         setUpFragment(FragmentHome())
 
@@ -99,67 +94,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setUpAdapter() {
-        val adapter = AppListRecyclerViewAdapter(this, listOfApps)
-        appListRecyclerview.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        appListRecyclerview.adapter = adapter
-    }
-
-    private fun addListItems() {
-        listOfApps.add(
-            CustomClass(
-                "BMI Calculator",
-                "Java",
-                "MVC",
-                "NA",
-                "Firebase Authentication",
-                "Calculate your accurate BMI",
-                "1/10",
-                getString(R.string.bmi_calculator_playstore)
-            )
-        )
-        listOfApps.add(
-            CustomClass(
-                "PMDB",
-                "Kotlin",
-                "MVC",
-                "NA",
-                "Third Party Apis, Retrofit",
-                "Find your favourite movies and shows",
-                "1.5/10",
-                getString(R.string.pmdb_playstore)
-            )
-        )
-
-        listOfApps.add(
-            CustomClass(
-                "Quiz",
-                "Kotlin",
-                "MVC",
-                "NA",
-                "Shared pref, Recyclerview",
-                "Quiz away",
-                "2.5/10",
-                getString(R.string.quiz_playstore)
-            )
-
-
-        )
-
-        listOfApps.add(
-            CustomClass(
-                "Ecommerce",
-                "Java",
-                "MVC",
-                "NA",
-                "Shared pref, Recyclerview, Bottom Navigation view, Menu",
-                "Sample E-commerce application",
-                "4/10",
-                getString(R.string.ecommerce_playstore)
-            )
-        )
-    }
 
     private fun checkInAppUpdate() {
         val appUpdateManager = AppUpdateManagerFactory.create(this)

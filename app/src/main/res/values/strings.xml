@@ -5,6 +5,8 @@
     <string name="pmdb_playstore">com.buzz_ht.moviedatabase</string>
     <string name="quiz_playstore">com.buzz_ht.quiz</string>
     <string name="ecommerce_playstore">com.buzz_ht.ecommerce</string>
+    <string name="purpose">Some random text which means nothing. Just filling the space with some random content.Some random text which means nothing.
+        Just filling the space with some random content.Some random text which means nothing. Just filling the space with some random content.</string>
 
 
 </resources>
