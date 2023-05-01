@@ -23,7 +23,6 @@ import com.google.android.play.core.install.model.UpdateAvailability
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnBMICalculator: Button
-    val appPackageName = "com.buzz_ht.bigbmi"
     private val MY_REQUEST_CODE = 99
     private lateinit var tabLayout: TabLayout
 
@@ -75,11 +74,7 @@ class MainActivity : AppCompatActivity() {
                         setUpFragment(FragmentAbout())
                     }
 
-
                 }
-
-                Toast.makeText(this@MainActivity, tab?.position.toString(), Toast.LENGTH_SHORT)
-                    .show()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -87,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                Toast.makeText(this@MainActivity, "Hello0000", Toast.LENGTH_SHORT).show()
+
 
             }
 

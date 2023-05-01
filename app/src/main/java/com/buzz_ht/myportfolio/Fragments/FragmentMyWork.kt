@@ -49,7 +49,7 @@ class FragmentMyWork : Fragment() {
                 "MVC",
                 "NA",
                 "Firebase Authentication",
-                "Calculate your accurate BMI",
+                "This app is a simple BMI calculator. App let's you calculate your BMI using 2 different units of measurement and also categorizes your BMI accordingly.",
                 "1/10",
                 getString(R.string.bmi_calculator_playstore)
             )
@@ -61,7 +61,7 @@ class FragmentMyWork : Fragment() {
                 "MVC",
                 "NA",
                 "Third Party Apis, Retrofit",
-                "Find your favourite movies and shows",
+                "This app will help you find your fav movies or shows and provide all the details about them. You can also create and maintain your personal Watchlist.",
                 "1.5/10",
                 getString(R.string.pmdb_playstore)
             )
@@ -74,7 +74,7 @@ class FragmentMyWork : Fragment() {
                 "MVC",
                 "NA",
                 "Shared pref, Recyclerview",
-                "Quiz away",
+                "This is an offline Quiz application. This app has different categories for you to test your knowledge. You can save your score and compete with yourself.",
                 "2.5/10",
                 getString(R.string.quiz_playstore)
             )

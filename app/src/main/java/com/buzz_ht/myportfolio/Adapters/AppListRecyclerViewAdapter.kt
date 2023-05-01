@@ -35,7 +35,7 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var txtAppTitle: TextView = view.findViewById(R.id.txtAppTitle)
         var txtGithubLink: TextView = view.findViewById(R.id.txtGithubLink)
-        var txtAppUseCase: TextView = view.findViewById(R.id.txtAppUseCase)
+        var txtAppDescription: TextView = view.findViewById(R.id.txtAppDescription)
         var txtComplexity: TextView = view.findViewById(R.id.txtComplexity)
         var txtTechnologiesUsed: TextView = view.findViewById(R.id.txtTechnologiesUsed)
         var txtAppArchitecture: TextView = view.findViewById(R.id.txtAppArchitecture)
@@ -55,6 +55,10 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txtAppTitle.text = listOfItems[position].appName
+
+        if (listOfItems[position].useCase != "") {
+            holder.txtAppDescription.text = "About: " + listOfItems[position].useCase
+        }
 
         holder.btnGetApp.setOnClickListener {
             val launchIntent =
@@ -103,9 +107,7 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
                 if (listOfItems[position].githubLink != "") {
                     holder.txtGithubLink.text = "Github Link: " + listOfItems[position].githubLink
                 }
-                if (listOfItems[position].useCase != "") {
-                    holder.txtAppUseCase.text = "UseCase: " + listOfItems[position].useCase
-                }
+
                 if (listOfItems[position].complexity != "") {
                     holder.txtComplexity.text =
                         "App complexity: " + listOfItems[position].complexity
