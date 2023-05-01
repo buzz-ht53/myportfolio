@@ -22,7 +22,7 @@ import com.google.android.play.core.install.model.UpdateAvailability
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var btnBMICalculator: Button
+
     private val MY_REQUEST_CODE = 99
     private lateinit var tabLayout: TabLayout
 
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        btnBMICalculator = findViewById(R.id.btnBMICalculator)
         tabLayout = findViewById(R.id.tabLayout)
 
         setUpTabLayout()

@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#423F3F</color>
     <color name="red">#EC0909</color>
+    <color name="light_yellow">#FBC02D</color>
+    <color name="description_font">#2196F3</color>
 </resources>

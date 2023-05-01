@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -44,6 +45,7 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
         var btnExpansionReverse: Button = view.findViewById(R.id.btnExpansionReverse)
         var btnGetApp: Button = view.findViewById(R.id.btnGetApp)
         var expansionLayout: CardView = view.findViewById(R.id.expansionLayout)
+        var appIcon: ImageView = view.findViewById(R.id.appIcon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -58,6 +60,19 @@ class AppListRecyclerViewAdapter(context: Context, listOfItems: List<CustomClass
 
         if (listOfItems[position].useCase != "") {
             holder.txtAppDescription.text = "About: " + listOfItems[position].useCase
+        }
+
+        if (listOfItems[position].appIconName != "") {
+            if (listOfItems[position].appName.equals("E-commerce", true))
+                holder.appIcon.setImageResource(R.drawable.logoecommerceapp)
+
+            if (listOfItems[position].appName.equals("Quiz", true))
+                holder.appIcon.setImageResource(R.drawable.logoquizapp)
+
+
+            if (listOfItems[position].appName.equals("PMDB", true))
+                holder.appIcon.setImageResource(R.drawable.logopmdbapp)
+
         }
 
         holder.btnGetApp.setOnClickListener {

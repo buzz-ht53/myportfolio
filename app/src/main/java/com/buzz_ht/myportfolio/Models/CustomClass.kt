@@ -8,7 +8,8 @@ data class CustomClass(
     val technologiesUsed: String,
     val useCase: String,
     val complexity: String,
-    val packageName: String
+    val packageName: String,
+    val appIconName: String
 
 )
 

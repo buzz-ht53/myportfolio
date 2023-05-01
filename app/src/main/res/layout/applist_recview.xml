@@ -5,7 +5,7 @@
     android:layout_marginTop="5dp"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
-    android:layout_marginBottom="15dp"
+    android:layout_marginBottom="5dp"
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
@@ -23,18 +23,30 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
+
+            <ImageView
+                android:id="@+id/appIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+
             <TextView
                 android:id="@+id/txtAppTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/appIcon"
                 android:fontFamily="@font/autour_one"
                 android:gravity="left"
                 android:text="App Name"
-                android:layout_marginStart="15dp"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/appIcon"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -61,7 +73,7 @@
                 android:layout_marginTop="5dp"
                 android:backgroundTint="@color/black"
                 android:drawableEnd="@drawable/ic_baseline_keyboard_double_arrow_down_24"
-                android:fontFamily="@font/sulphur_point"
+                android:fontFamily="sans-serif-medium"
                 android:text="View More"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
@@ -75,7 +87,7 @@
                 android:layout_marginTop="5dp"
                 android:backgroundTint="@color/black"
                 android:drawableEnd="@drawable/ic_baseline_keyboard_double_arrow_up_24"
-                android:fontFamily="@font/sulphur_point"
+                android:fontFamily="sans-serif-medium"
                 android:text="View Less"
                 android:visibility="gone"
                 android:textAllCaps="false"
@@ -89,7 +101,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="5dp"
                 android:backgroundTint="@color/black"
-                android:fontFamily="@font/sulphur_point"
+                android:fontFamily="sans-serif-medium"
                 android:text="@string/get_application"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
